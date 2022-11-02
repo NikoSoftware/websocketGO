@@ -8,7 +8,4 @@ func main() {
 
 	wsocket.StartWebsocket()
 
-	manager := wsocket.NewClientManager()
-	manager.DealCenter()
-
 }

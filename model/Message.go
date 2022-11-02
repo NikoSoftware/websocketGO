@@ -1,7 +1,7 @@
 package model
 
 type Message struct {
-	Id  int
-	Cmd int
-	Msg interface{}
+	Id  int    `json:"id""`
+	Cmd int    `json:"cmd""`
+	Msg string `json:"msg""`
 }

@@ -7,16 +7,41 @@
     <title>Go WebSocket Tutorial</title>
 </head>
 <body>
-<h2>Hello World</h2>
+
+<input type="text" id="msg" value='{"cmd":1,"msg":"hello world"}'>
+
+<input type="button" value="提交" onclick="call()">
+
+
+
 
 <script>
+
+    function call(){
+
+        let test = document.getElementById("msg").value
+        socket.send(test)
+    }
+
     let socket = new WebSocket("ws://127.0.0.1:7300/ws");
     console.log("Attempting Connection...");
 
+    let a ={
+        cmd:1,
+        msg:"hello world"
+    }
+
+
+
+
     socket.onopen = () => {
         console.log("Successfully Connected");
-        socket.send("Hi From the Client!")
+        socket.send(
+            JSON.stringify(a)
+        )
     };
+
+
 
     socket.onclose = event => {
         console.log("Socket Closed Connection: ", event);
